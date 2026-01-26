@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  harbor-cleaner:
+    image: "harbor-cleaner:1.0"
+    ports:
+      - 5000:5000
+    volumes:
+      - ./certs:/certs
+
+    environment:
+      - HARBOR_HOST=<host>
+      - HARBOR_USER=<user>
+      - HARBOR_PASSWORD=<password>
+      - HARBOR_PROJECT=<project>
+      - GITLAB_PROJECT=<gitlab/project>
+      - FASTAPI_TOKEN=<TOKEN>
+    restart: unless-stopped

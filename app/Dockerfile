@@ -1,0 +1,17 @@
+
+FROM python:3.12-slim
+WORKDIR /usr/local/app
+
+ENV PYTHONUNBUFFERED=1
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src ./src
+EXPOSE 5000
+
+RUN useradd app
+USER app
+WORKDIR /usr/local/app/src
+
+CMD ["gunicorn", "-w", "2", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--bind", "0.0.0.0:5000"]
