@@ -1,1 +1,1 @@
-Ca.pem contains a trusted Ca for harbor registry
+CA.pem contains a trusted Certification authority for harbor registry
