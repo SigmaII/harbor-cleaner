@@ -13,6 +13,6 @@ services:
       - HARBOR_PASSWORD=<password>
       - HARBOR_PROJECT=<project>
       - GITLAB_PROJECT=<gitlab/project>
-      # FastApi token it's the same of gitlab webhook token
+      # FastApi token is the same of gitlab webhook token
       - FASTAPI_TOKEN=<TOKEN>
     restart: unless-stopped
